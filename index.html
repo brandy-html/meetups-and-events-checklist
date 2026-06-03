@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Checklist</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f6f9; min-height: 100vh; padding: 24px 16px; }
+  .container { max-width: 620px; margin: 0 auto; }
+  .hidden { display: none !important; }
+  .app-title { text-align: center; margin-bottom: 28px; }
+  .app-title h1 { font-size: 1.6rem; font-weight: 800; color: #1a1a2e; }
+  .app-title p { font-size: 0.85rem; color: #999; margin-top: 4px; }
+  .card { background: #fff; border-radius: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; }
+  .card-header { font-size: 0.82rem; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.05em; padding: 14px 20px 10px; border-bottom: 1px solid #f0f0f0; }
+  .card-body { padding: 18px 20px; }
+  .input-row { display: flex; gap: 10px; }
+  input[type="text"] { flex: 1; padding: 10px 14px; border: 1.5px solid #e0e0f0; border-radius: 8px; font-size: 0.92rem; color: #222; outline: none; transition: border-color 0.2s; }
+  input[type="text"]:focus { border-color: #6c63ff; }
+  .btn-primary { background: #6c63ff; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.2s; flex-shrink: 0; }
+  .btn-primary:hover { background: #574fd6; }
+  .event-item { display: flex; align-items: center; padding: 14px 20px; border-bottom: 1px solid #f5f5f5; cursor: pointer; transition: background 0.15s; gap: 12px; }
+  .event-item:last-child { border-bottom: none; }
+  .event-item:hover { background: #fafafa; }
+  .event-dot { width: 10px; height: 10px; border-radius: 50%; background: #e0e0f0; flex-shrink: 0; }
+  .event-dot.complete { background: #48cfad; }
+  .event-dot.partial { background: #6c63ff; }
+  .event-item-name { flex: 1; font-size: 0.95rem; font-weight: 600; color: #1a1a2e; }
+  .event-item-progress { font-size: 0.78rem; color: #aaa; }
+  .event-item-arrow { color: #ccc; }
+  .empty-state { padding: 32px 20px; text-align: center; color: #bbb; font-size: 0.88rem; }
+  .back-btn { display: inline-flex; align-items: center; gap: 6px; background: none; border: none; color: #6c63ff; font-size: 0.88rem; font-weight: 600; cursor: pointer; padding: 0 0 16px 0; }
+  .back-btn:hover { color: #574fd6; }
+  .cl-header { background: #fff; border-radius: 12px; padding: 22px; margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .cl-header h1 { font-size: 1.25rem; font-weight: 800; color: #1a1a2e; }
+  .event-sub { font-size: 0.8rem; color: #bbb; margin-top: 2px; }
+  .progress-bar-wrap { background: #eee; border-radius: 99px; height: 8px; margin-top: 14px; overflow: hidden; }
+  .progress-bar { height: 8px; background: linear-gradient(90deg, #6c63ff, #48cfad); border-radius: 99px; transition: width 0.4s ease; width: 0%; }
+  .progress-label { font-size: 0.8rem; color: #6c63ff; font-weight: 600; margin-top: 6px; text-align: right; }
+  .share-banner { background: #fff; border-radius: 12px; padding: 13px 18px; margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .share-banner p { font-size: 0.82rem; color: #888; flex: 1; }
+  .copy-btn { background: #6c63ff; color: #fff; border: none; border-radius: 8px; padding: 8px 16px; font-size: 0.82rem; font-weight: 600; cursor: pointer; white-space: nowrap; }
+  .copy-btn:hover { background: #574fd6; }
+  .section { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; }
+  .task-row { display: flex; align-items: center; gap: 12px; padding: 13px 18px; border-bottom: 1px solid #f0f0f0; user-select: none; }
+  .task-row:last-child { border-bottom: none; }
+  .task-row.sub { padding-left: 46px; background: #fafbff; }
+  .checkbox { width: 22px; height: 22px; border-radius: 6px; border: 2px solid #d0d0e0; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; cursor: pointer; }
+  .task-row.done .checkbox { background: #6c63ff; border-color: #6c63ff; }
+  .checkmark { display: none; color: #fff; font-size: 13px; font-weight: 700; }
+  .task-row.done .checkmark { display: block; }
+  .task-label { font-size: 0.93rem; color: #2d2d2d; flex: 1; cursor: pointer; }
+  .task-row.done .task-label { color: #bbb; text-decoration: line-through; }
+  .parent-label { font-weight: 600; }
+  .del-btn { background: none; border: none; color: #ddd; font-size: 0.95rem; cursor: pointer; padding: 2px 5px; border-radius: 4px; flex-shrink: 0; }
+  .del-btn:hover { color: #e05555; background: #fff0f0; }
+  .add-row { display: flex; gap: 8px; padding: 10px 16px; border-top: 1px dashed #ebebf5; }
+  .add-row input { flex: 1; padding: 7px 11px; border: 1.5px solid #e0e0f0; border-radius: 7px; font-size: 0.85rem; outline: none; }
+  .add-row input:focus { border-color: #6c63ff; }
+  .add-row button { background: #6c63ff; color: #fff; border: none; border-radius: 7px; padding: 7px 14px; font-size: 0.82rem; font-weight: 600; cursor: pointer; }
+  .add-row button:hover { background: #574fd6; }
+  .add-row.sub-add { padding-left: 46px; }
+  .all-done-banner { display: none; background: linear-gradient(135deg, #6c63ff, #48cfad); color: #fff; text-align: center; border-radius: 12px; padding: 18px; margin-bottom: 14px; font-weight: 700; font-size: 1rem; }
+  .all-done-banner.show { display: block; }
+  .monday-summary { background: #fff; border-radius: 12px; padding: 16px 18px; margin-top: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); display: none; }
+  .monday-summary.show { display: block; }
+  .monday-summary h3 { font-size: 0.85rem; color: #888; margin-bottom: 8px; font-weight: 600; }
+  .monday-summary pre { font-size: 0.82rem; color: #333; white-space: pre-wrap; line-height: 1.6; }
+  .summary-copy-btn { margin-top: 10px; background: transparent; border: 1px solid #6c63ff; color: #6c63ff; border-radius: 8px; padding: 6px 14px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+  .summary-copy-btn:hover { background: #6c63ff; color: #fff; }
+  .delete-event-btn { margin-top: 18px; width: 100%; background: transparent; border: 1px solid #ffbaba; color: #e05555; border-radius: 8px; padding: 10px; font-size: 0.82rem; font-weight: 600; cursor: pointer; }
+  .delete-event-btn:hover { background: #fff0f0; }
+  footer { text-align: center; font-size: 0.75rem; color: #bbb; margin-top: 24px; padding-bottom: 24px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div id="homeScreen">
+    <div class="app-title"><h1>📋 Event Checklists</h1><p>One checklist per event — tracked separately</p></div>
+    <div class="card"><div class="card-header">➕ New Event</div><div class="card-body"><div class="input-row"><input type="text" id="eventNameInput" placeholder="e.g. Q3 Client Dinner, June Summit…" maxlength="60" /><button class="btn-primary" id="addEventBtn">Create</button></div></div></div>
+    <div class="card"><div class="card-header">Your Events</div><div id="eventsList"></div></div>
+    <footer>All data saved in your browser</footer>
+  </div>
+  <div id="checklistScreen" class="hidden">
+    <button class="back-btn" id="backBtn">← All Events</button>
+    <div class="all-done-banner" id="allDoneBanner">🎉 All tasks complete! Ready to update Monday.</div>
+    <div class="cl-header"><h1 id="eventTitle"></h1><div class="event-sub" id="eventDate"></div><div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div><div class="progress-label" id="progressLabel">0 / 0 tasks done</div></div>
+    <div class="share-banner"><p>Share this page — no login needed.</p><button class="copy-btn" id="copyLinkBtn">📎 Copy Link</button></div>
+    <div id="checklist"></div>
+    <div class="monday-summary" id="mondaySummary"><h3>📌 Monday.com Update Summary</h3><pre id="summaryText"></pre><button class="summary-copy-btn" id="copySummaryBtn">Copy Summary</button></div>
+    <button class="delete-event-btn" id="deleteEventBtn">🗑 Delete this event</button>
+    <footer>Tasks saved in your browser • Refresh-safe</footer>
+  </div>
+</div>
+<script>
+(function(){
+  var DEFAULT_TASKS=[{id:"t1",label:"Contact JLL about late lock-up"},{id:"t2",label:"Set doors for unlocking/locking"},{id:"t3",label:"Make and print wayfinding signs"},{id:"t4",label:"Set out wayfinding signs"},{id:"t5",label:"Prepare items for tables and welcome table",children:[{id:"t5a",label:"Mints"},{id:"t5b",label:"WiFi Cards"},{id:"t5c",label:"Other EG tchotkes"}]},{id:"t6",label:"Clean up",children:[{id:"t6a",label:"Signs"},{id:"t6b",label:"Put away mints, welcome signs etc."}]}];
+  var currentId=null,currentState={},currentTasks=[];
+  function store(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+  function retrieve(k,fb){try{var v=localStorage.getItem(k);return v?JSON.parse(v):fb;}catch(e){return fb;}}
+  function allEvents(){return retrieve("eg_events",[]);}
+  function saveEvents(l){store("eg_events",l);}
+  function getState(id){return retrieve("eg_st_"+id,{});}
+  function setState(id,s){store("eg_st_"+id,s);}
+  function getTasks(id){return retrieve("eg_tk_"+id,null)||deepClone(DEFAULT_TASKS);}
+  function setTasks(id,t){store("eg_tk_"+id,t);}
+  function deepClone(x){return JSON.parse(JSON.stringify(x));}
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  function uid(){return "x"+Math.random().toString(36).slice(2,9);}
+  function leafIds(tasks){var ids=[];tasks.forEach(function(t){if(t.children&&t.children.length){t.children.forEach(function(c){ids.push(c.id);});}else{ids.push(t.id);}});return ids;}
+  function doneCount(tasks,state){return leafIds(tasks).filter(function(id){return !!state[id];}).length;}
+  function parentDone(task,state){if(!task.children||!task.children.length)return !!state[task.id];return task.children.every(function(c){return !!state[c.id];});}
+  function showHome(){currentId=null;currentState={};currentTasks=[];document.getElementById("homeScreen").classList.remove("hidden");document.getElementById("checklistScreen").classList.add("hidden");renderHome();}
+  function showChecklist(id){currentId=id;currentState=getState(id);currentTasks=getTasks(id);var ev=allEvents().filter(function(e){return e.id===id;})[0];if(!ev){showHome();return;}document.getElementById("eventTitle").textContent="📋 "+ev.name;document.getElementById("eventDate").textContent="Created "+new Date(ev.created).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"});document.getElementById("homeScreen").classList.add("hidden");document.getElementById("checklistScreen").classList.remove("hidden");renderChecklist();}
+  function renderHome(){var events=allEvents();var list=document.getElementById("eventsList");if(!events.length){list.innerHTML='<div class="empty-state">No events yet — create one above!</div>';return;}list.innerHTML="";deepClone(events).reverse().forEach(function(ev){var st=getState(ev.id),tk=getTasks(ev.id);var done=doneCount(tk,st),total=leafIds(tk).length;var dotClass=(done===total&&total>0)?"complete":done>0?"partial":"";var div=document.createElement("div");div.className="event-item";div.innerHTML='<div class="event-dot '+dotClass+'"></div><span class="event-item-name">'+esc(ev.name)+'</span><span class="event-item-progress">'+done+'/'+total+'</span><span class="event-item-arrow">›</span>';div.addEventListener("click",function(){showChecklist(ev.id);});list.appendChild(div);});}
+  function addEvent(){var input=document.getElementById("eventNameInput");var name=input.value.trim();if(!name){input.focus();return;}var events=allEvents(),id="ev"+Date.now();events.push({id:id,name:name,created:new Date().toISOString()});saveEvents(events);setTasks(id,deepClone(DEFAULT_TASKS));input.value="";showChecklist(id);}
+  function deleteCurrentEvent(){if(!confirm("Delete this event and all its progress?"))return;saveEvents(allEvents().filter(function(e){return e.id!==currentId;}));try{localStorage.removeItem("eg_st_"+currentId);localStorage.removeItem("eg_tk_"+currentId);}catch(e){}showHome();}
+  function toggleTask(taskId,task){if(task.children&&task.children.length){var allDone=task.children.every(function(c){return !!currentState[c.id];});task.children.forEach(function(c){currentState[c.id]=!allDone;});}else{currentState[taskId]=!currentState[taskId];}setState(currentId,currentState);renderChecklist();}
+  function removeTask(taskId,parentId){if(parentId){var p=currentTasks.filter(function(t){return t.id===parentId;})[0];if(p)p.children=p.children.filter(function(c){return c.id!==taskId;});}else{currentTasks=currentTasks.filter(function(t){return t.id!==taskId;});}delete currentState[taskId];setTasks(currentId,currentTasks);setState(currentId,currentState);renderChecklist();}
+  function addTopTask(input){var label=input.value.trim();if(!label){input.focus();return;}currentTasks.push({id:uid(),label:label});setTasks(currentId,currentTasks);input.value="";renderChecklist();setTimeout(function(){var el=document.getElementById("newTaskInput");if(el)el.focus();},10);}
+  function addSubTask(input,parentId){var label=input.value.trim();if(!label){input.focus();return;}var p=currentTasks.filter(function(t){return t.id===parentId;})[0];if(!p)return;if(!p.children)p.children=[];p.children.push({id:uid(),label:label});setTasks(currentId,currentTasks);input.value="";renderChecklist();setTimeout(function(){var el=document.querySelector('.sub-input[data-pid="'+parentId+'"]');if(el)el.focus();},10);}
+  function renderChecklist(){var container=document.getElementById("checklist");container.innerHTML="";currentTasks.forEach(function(task){var section=document.createElement("div");section.className="section";var isDone=parentDone(task,currentState);var row=document.createElement("div");row.className="task-row"+(isDone?" done":"");row.innerHTML='<div class="checkbox"><span class="checkmark">✓</span></div><span class="task-label parent-label">'+esc(task.label)+'</span><button class="del-btn" title="Remove">✕</button>';(function(t){row.querySelector(".checkbox").addEventListener("click",function(e){e.stopPropagation();toggleTask(t.id,t);});row.querySelector(".task-label").addEventListener("click",function(e){e.stopPropagation();toggleTask(t.id,t);});row.querySelector(".del-btn").addEventListener("click",function(e){e.stopPropagation();removeTask(t.id,null);});})(task);section.appendChild(row);if(task.children&&task.children.length){task.children.forEach(function(child){var cDone=!!currentState[child.id],cRow=document.createElement("div");cRow.className="task-row sub"+(cDone?" done":"");cRow.innerHTML='<div class="checkbox"><span class="checkmark">✓</span></div><span class="task-label">'+esc(child.label)+'</span><button class="del-btn" title="Remove">✕</button>';(function(c,pId){cRow.querySelector(".checkbox").addEventListener("click",function(e){e.stopPropagation();toggleTask(c.id,c);});cRow.querySelector(".task-label").addEventListener("click",function(e){e.stopPropagation();toggleTask(c.id,c);});cRow.querySelector(".del-btn").addEventListener("click",function(e){e.stopPropagation();removeTask(c.id,pId);});})(child,task.id);section.appendChild(cRow);});}var subAdd=document.createElement("div");subAdd.className="add-row sub-add";subAdd.innerHTML='<input type="text" class="sub-input" data-pid="'+task.id+'" placeholder="Add sub-task…" maxlength="80" /><button>+ Add</button>';var subInput=subAdd.querySelector("input");(function(inp,tid){subAdd.querySelector("button").addEventListener("click",function(){addSubTask(inp,tid);});inp.addEventListener("keydown",function(e){if(e.key==="Enter")addSubTask(inp,tid);});})(subInput,task.id);section.appendChild(subAdd);container.appendChild(section);});var addSection=document.createElement("div");addSection.className="section";addSection.innerHTML='<div class="add-row"><input type="text" id="newTaskInput" placeholder="Add a new task…" maxlength="80" /><button>+ Add</button></div>';var newInput=addSection.querySelector("#newTaskInput");addSection.querySelector("button").addEventListener("click",function(){addTopTask(newInput);});newInput.addEventListener("keydown",function(e){if(e.key==="Enter")addTopTask(newInput);});container.appendChild(addSection);var done=doneCount(currentTasks,currentState),total=leafIds(currentTasks).length;document.getElementById("progressBar").style.width=(total?Math.round(done/total*100):0)+"%";document.getElementById("progressLabel").textContent=done+" / "+total+" tasks done";document.getElementById("allDoneBanner").classList.toggle("show",total>0&&done===total);var summaryEl=document.getElementById("mondaySummary");if(done>0){summaryEl.classList.add("show");buildSummary();}else{summaryEl.classList.remove("show");}}
+  function buildSummary(){var ev=allEvents().filter(function(e){return e.id===currentId;})[0];var lines=["Event: "+(ev?ev.name:""),"Updated: "+new Date().toLocaleString(),"Progress: "+doneCount(currentTasks,currentState)+" / "+leafIds(currentTasks).length+" tasks complete\n"];currentTasks.forEach(function(task){if(task.children&&task.children.length){var allD=parentDone(task,currentState),someD=task.children.some(function(c){return !!currentState[c.id];});lines.push((allD?"✅":someD?"🔄":"⬜")+" "+task.label);task.children.forEach(function(c){lines.push("   "+(currentState[c.id]?"✅":"⬜")+" "+c.label);});}else{lines.push((currentState[task.id]?"✅":"⬜")+" "+task.label);}});document.getElementById("summaryText").textContent=lines.join("\n");}
+  document.getElementById("addEventBtn").addEventListener("click",addEvent);
+  document.getElementById("eventNameInput").addEventListener("keydown",function(e){if(e.key==="Enter")addEvent();});
+  document.getElementById("backBtn").addEventListener("click",showHome);
+  document.getElementById("deleteEventBtn").addEventListener("click",deleteCurrentEvent);
+  document.getElementById("copyLinkBtn").addEventListener("click",function(){navigator.clipboard.writeText(window.location.href).then(function(){var btn=document.getElementById("copyLinkBtn");btn.textContent="✅ Copied!";setTimeout(function(){btn.textContent="📎 Copy Link";},2000);}).catch(function(){});});
+  document.getElementById("copySummaryBtn").addEventListener("click",function(){navigator.clipboard.writeText(document.getElementById("summaryText").textContent).then(function(){var btn=document.getElementById("copySummaryBtn");btn.textContent="Copied!";setTimeout(function(){btn.textContent="Copy Summary";},2000);}).catch(function(){});});
+  showHome();
+})();
+</script>
+</body>
+</html>
