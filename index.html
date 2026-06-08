@@ -20,10 +20,12 @@
 
   .hidden { display: none !important; }
 
+  /* CARDS */
   .card { background: #fff; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); margin-bottom: 16px; overflow: hidden; }
   .card-header { font-size: 0.82rem; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.05em; padding: 14px 20px 10px; border-bottom: 1px solid #f0f0f0; }
   .card-body { padding: 18px 20px; }
 
+  /* INPUTS */
   .input-col { display: flex; flex-direction: column; gap: 8px; flex: 1; }
   .input-row { display: flex; gap: 10px; align-items: flex-end; }
   input[type="text"], input[type="date"] {
@@ -36,6 +38,7 @@
   .btn-primary { background: #507C9B; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.2s; flex-shrink: 0; white-space: nowrap; }
   .btn-primary:hover { background: #3d6180; }
 
+  /* EVENT LIST */
   .event-item { display: flex; align-items: center; padding: 13px 20px; border-bottom: 1px solid #f5f5f5; cursor: pointer; transition: background 0.15s; gap: 12px; }
   .event-item:last-child { border-bottom: none; }
   .event-item:hover { background: #fafafa; }
@@ -49,6 +52,7 @@
   .ev-arrow { color: #ccc; flex-shrink: 0; }
   .empty-state { padding: 32px 20px; text-align: center; color: #bbb; font-size: 0.88rem; }
 
+  /* CALENDAR CARD */
   .cal-card { background: #fff; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); overflow: hidden; position: sticky; top: 16px; }
   .cal-head { padding: 12px 14px 10px; border-bottom: 1px solid #f0f0f0; }
   .cal-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
@@ -56,11 +60,12 @@
   .cal-nav-btn { background: none; border: none; cursor: pointer; color: #507C9B; font-size: 1.2rem; line-height: 1; padding: 2px 7px; border-radius: 6px; transition: background 0.15s; }
   .cal-nav-btn:hover { background: #f0f4f8; }
   .cal-tabs { display: flex; gap: 3px; }
-  .cal-tab { background: none; border: none; cursor: pointer; font-size: 0.73rem; font-weight: 700; color: #bbb; padding: 4px 9px; border-radius: 6px; transition: all 0.15s; }
+  .cal-tab { background: none; border: none; cursor: pointer; font-size: 0.73rem; font-weight: 700; color: #bbb; padding: 4px 9px; border-radius: 6px; transition: all 0.15s; letter-spacing: 0.02em; }
   .cal-tab.active { background: #507C9B; color: #fff; }
   .cal-tab:not(.active):hover { background: #f0f4f8; color: #507C9B; }
   .cal-body { padding: 10px 10px 12px; }
 
+  /* MONTH VIEW */
   .cal-weekdays { display: grid; grid-template-columns: repeat(7,1fr); margin-bottom: 2px; }
   .cal-wday { text-align: center; font-size: 0.63rem; font-weight: 700; color: #ccc; text-transform: uppercase; padding: 2px 0 4px; }
   .cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 1px; }
@@ -75,6 +80,7 @@
   .cal-dot { width: 5px; height: 5px; border-radius: 50%; background: #507C9B; }
   .cal-dot.done { background: #48cfad; }
 
+  /* WEEK VIEW */
   .week-rows { display: flex; flex-direction: column; gap: 2px; }
   .week-row { display: flex; align-items: flex-start; gap: 6px; padding: 5px 4px; border-radius: 7px; }
   .week-row.is-today { background: #f0f4f8; }
@@ -85,6 +91,7 @@
   .week-chip { font-size: 0.68rem; font-weight: 600; background: #e8f0f7; color: #507C9B; border-radius: 4px; padding: 2px 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 170px; }
   .week-chip.done { background: #e3f8f2; color: #2eaa8a; }
 
+  /* DAY VIEW */
   .day-empty { text-align: center; color: #ccc; font-size: 0.8rem; padding: 18px 0 10px; }
   .day-ev { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #f7f9fc; border-radius: 8px; margin-bottom: 6px; cursor: pointer; transition: background 0.15s; }
   .day-ev:hover { background: #edf2f7; }
@@ -93,18 +100,22 @@
   .day-ev-name { font-size: 0.82rem; font-weight: 600; color: #333; flex: 1; }
   .day-ev-prog { font-size: 0.68rem; color: #aaa; }
 
+  /* CHECKLIST SCREEN */
   .back-btn { display: inline-flex; align-items: center; gap: 6px; background: none; border: none; color: #fff; font-size: 0.88rem; font-weight: 600; cursor: pointer; padding: 0 0 16px 0; }
   .back-btn:hover { color: rgba(255,255,255,0.75); }
+
   .cl-head { background: #fff; border-radius: 12px; padding: 22px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
   .cl-head h1 { font-size: 1.2rem; font-weight: 800; color: #1a1a2e; }
   .ev-sub { font-size: 0.78rem; color: #bbb; margin-top: 3px; }
   .prog-wrap { background: #eee; border-radius: 99px; height: 8px; margin-top: 14px; overflow: hidden; }
   .prog-bar { height: 8px; background: linear-gradient(90deg, #507C9B, #48cfad); border-radius: 99px; transition: width 0.4s; width: 0%; }
   .prog-label { font-size: 0.78rem; color: #507C9B; font-weight: 600; margin-top: 5px; text-align: right; }
+
   .share-banner { background: #fff; border-radius: 12px; padding: 12px 18px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   .share-banner p { font-size: 0.82rem; color: #888; flex: 1; }
   .copy-btn { background: #507C9B; color: #fff; border: none; border-radius: 8px; padding: 8px 16px; font-size: 0.82rem; font-weight: 600; cursor: pointer; white-space: nowrap; }
   .copy-btn:hover { background: #3d6180; }
+
   .task-section { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); overflow: hidden; }
   .task-row { display: flex; align-items: center; gap: 12px; padding: 13px 18px; border-bottom: 1px solid #f0f0f0; user-select: none; }
   .task-row:last-child { border-bottom: none; }
@@ -118,23 +129,29 @@
   .parent-label { font-weight: 600; }
   .del-btn { background: none; border: none; color: #ddd; font-size: 0.95rem; cursor: pointer; padding: 2px 5px; border-radius: 4px; flex-shrink: 0; }
   .del-btn:hover { color: #e05555; background: #fff0f0; }
+
   .add-row { display: flex; gap: 8px; padding: 10px 16px; border-top: 1px dashed #ebebf5; }
   .add-row input { flex: 1; padding: 7px 11px; border: 1.5px solid #e0e0f0; border-radius: 7px; font-size: 0.85rem; outline: none; font-family: inherit; }
   .add-row input:focus { border-color: #507C9B; }
   .add-row button { background: #507C9B; color: #fff; border: none; border-radius: 7px; padding: 7px 14px; font-size: 0.82rem; font-weight: 600; cursor: pointer; }
   .add-row button:hover { background: #3d6180; }
   .add-row.sub-add { padding-left: 46px; }
+
   .all-done-banner { display: none; background: linear-gradient(135deg, #507C9B, #48cfad); color: #fff; text-align: center; border-radius: 12px; padding: 18px; margin-bottom: 14px; font-weight: 700; font-size: 1rem; }
   .all-done-banner.show { display: block; }
+
   .monday-box { background: #fff; border-radius: 12px; padding: 16px 18px; margin-top: 14px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); display: none; }
   .monday-box.show { display: block; }
   .monday-box h3 { font-size: 0.85rem; color: #888; margin-bottom: 8px; font-weight: 600; }
   .monday-box pre { font-size: 0.82rem; color: #333; white-space: pre-wrap; line-height: 1.6; }
   .sum-copy-btn { margin-top: 10px; background: transparent; border: 1px solid #507C9B; color: #507C9B; border-radius: 8px; padding: 6px 14px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
   .sum-copy-btn:hover { background: #507C9B; color: #fff; }
+
   .del-event-btn { margin-top: 18px; width: 100%; background: transparent; border: 1px solid #ffbaba; color: #e05555; border-radius: 8px; padding: 10px; font-size: 0.82rem; font-weight: 600; cursor: pointer; }
   .del-event-btn:hover { background: #fff0f0; }
+
   footer { text-align: center; font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 24px; padding-bottom: 24px; }
+
   @media (max-width: 700px) {
     .app-layout { flex-direction: column-reverse; }
     .cal-sidebar { width: 100%; }
@@ -143,53 +160,74 @@
 </style>
 </head>
 <body>
+
 <div style="max-width:980px;margin:0 auto;">
   <div class="app-title">
-    <h1>📋 Event Checklists</h1>
-    <p>One checklist per event — tracked separately</p>
+    <h1>&#128203; Event Checklists</h1>
+    <p>One checklist per event &#8212; tracked separately</p>
   </div>
 </div>
+
 <div class="app-layout">
+
+  <!-- MAIN CONTENT -->
   <div class="main-content">
+
+    <!-- HOME SCREEN -->
     <div id="homeScreen">
       <div class="card">
-        <div class="card-header">➕ New Event</div>
+        <div class="card-header">&#10133; New Event</div>
         <div class="card-body">
           <div class="input-row">
             <div class="input-col">
-              <input type="text" id="eventNameInput" placeholder="e.g. Q3 Client Dinner, June Summit…" maxlength="60" />
+              <input type="text" id="eventNameInput" placeholder="e.g. Q3 Client Dinner, June Summit&#8230;" maxlength="60" />
               <input type="date" id="eventDateInput" />
             </div>
             <button class="btn-primary" id="addEventBtn">Create</button>
           </div>
         </div>
       </div>
-      <div class="card"><div class="card-header">Your Events</div><div id="eventsList"></div></div>
+      <div class="card">
+        <div class="card-header">Your Events</div>
+        <div id="eventsList"></div>
+      </div>
       <footer>All data saved in your browser</footer>
     </div>
+
+    <!-- CHECKLIST SCREEN -->
     <div id="checklistScreen" class="hidden">
-      <button class="back-btn" id="backBtn">← All Events</button>
-      <div class="all-done-banner" id="allDoneBanner">🎉 All tasks complete! Ready to update Monday.</div>
+      <button class="back-btn" id="backBtn">&#8592; All Events</button>
+      <div class="all-done-banner" id="allDoneBanner">&#127881; All tasks complete! Ready to update Monday.</div>
       <div class="cl-head">
         <h1 id="eventTitle"></h1>
         <div class="ev-sub" id="eventDateSub"></div>
         <div class="prog-wrap"><div class="prog-bar" id="progressBar"></div></div>
         <div class="prog-label" id="progressLabel">0 / 0 tasks done</div>
       </div>
-      <div class="share-banner"><p>Share this page — no login needed.</p><button class="copy-btn" id="copyLinkBtn">📎 Copy Link</button></div>
+      <div class="share-banner">
+        <p>Share this page &#8212; no login needed.</p>
+        <button class="copy-btn" id="copyLinkBtn">&#128206; Copy Link</button>
+      </div>
       <div id="checklist"></div>
-      <div class="monday-box" id="mondaySummary"><h3>📌 Monday.com Update Summary</h3><pre id="summaryText"></pre><button class="sum-copy-btn" id="copySummaryBtn">Copy Summary</button></div>
-      <button class="del-event-btn" id="deleteEventBtn">🗑 Delete this event</button>
-      <footer>Tasks saved in your browser • Refresh-safe</footer>
+      <div class="monday-box" id="mondaySummary">
+        <h3>&#128204; Monday.com Update Summary</h3>
+        <pre id="summaryText"></pre>
+        <button class="sum-copy-btn" id="copySummaryBtn">Copy Summary</button>
+      </div>
+      <button class="del-event-btn" id="deleteEventBtn">&#128465; Delete this event</button>
+      <footer>Tasks saved in your browser &#8226; Refresh-safe</footer>
     </div>
-  </div>
+
+  </div><!-- /main-content -->
+
+  <!-- CALENDAR SIDEBAR -->
   <div class="cal-sidebar">
     <div class="cal-card">
       <div class="cal-head">
         <div class="cal-nav">
-          <button class="cal-nav-btn" id="calPrev">‹</button>
+          <button class="cal-nav-btn" id="calPrev">&#8249;</button>
           <span class="cal-nav-title" id="calTitle"></span>
-          <button class="cal-nav-btn" id="calNext">›</button>
+          <button class="cal-nav-btn" id="calNext">&#8250;</button>
         </div>
         <div class="cal-tabs">
           <button class="cal-tab active" data-view="month">Month</button>
@@ -200,59 +238,412 @@
       <div class="cal-body" id="calBody"></div>
     </div>
   </div>
-</div>
+
+</div><!-- /app-layout -->
+
 <script>
-(function(){
-  var DEFAULT_TASKS=[{id:"t1",label:"Contact JLL about late lock-up"},{id:"t2",label:"Set doors for unlocking/locking"},{id:"t3",label:"Make and print wayfinding signs"},{id:"t4",label:"Set out wayfinding signs"},{id:"t5",label:"Prepare items for tables and welcome table",children:[{id:"t5a",label:"Mints"},{id:"t5b",label:"WiFi Cards"},{id:"t5c",label:"Other EG tchotkes"}]},{id:"t6",label:"Clean up",children:[{id:"t6a",label:"Signs"},{id:"t6b",label:"Put away mints, welcome signs etc."}]}];
-  var currentId=null,currentState={},currentTasks=[],calView="month",calNav=new Date(),calSelected=new Date();
-  function store(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
-  function retrieve(k,fb){try{var v=localStorage.getItem(k);return v?JSON.parse(v):fb;}catch(e){return fb;}}
-  function allEvents(){return retrieve("eg_events",[]);}
-  function saveEvents(l){store("eg_events",l);}
-  function getState(id){return retrieve("eg_st_"+id,{});}
-  function setState(id,s){store("eg_st_"+id,s);}
-  function getTasks(id){return retrieve("eg_tk_"+id,null)||deepClone(DEFAULT_TASKS);}
-  function setTasks(id,t){store("eg_tk_"+id,t);}
-  function deepClone(x){return JSON.parse(JSON.stringify(x));}
-  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
-  function uid(){return "x"+Math.random().toString(36).slice(2,9);}
-  function pad(n){return n<10?"0"+n:""+n;}
-  function toDateStr(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());}
-  function sameDay(a,b){return a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate();}
-  function leafIds(tasks){var ids=[];tasks.forEach(function(t){if(t.children&&t.children.length){t.children.forEach(function(c){ids.push(c.id);});}else{ids.push(t.id);}});return ids;}
-  function doneCount(tasks,state){return leafIds(tasks).filter(function(id){return !!state[id];}).length;}
-  function parentDone(task,state){if(!task.children||!task.children.length)return !!state[task.id];return task.children.every(function(c){return !!state[c.id];});}
-  function eventsOnDate(ds){return allEvents().filter(function(ev){return ev.eventDate===ds;});}
-  function evComplete(ev){var tk=getTasks(ev.id),st=getState(ev.id),total=leafIds(tk).length;return total>0&&doneCount(tk,st)===total;}
-  function fmtDate(ds){if(!ds)return "No date set";return new Date(ds+"T12:00:00").toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"});}
-  function showHome(){currentId=null;currentState={};currentTasks=[];document.getElementById("homeScreen").classList.remove("hidden");document.getElementById("checklistScreen").classList.add("hidden");renderHome();renderCalendar();}
-  function showChecklist(id){currentId=id;currentState=getState(id);currentTasks=getTasks(id);var ev=allEvents().filter(function(e){return e.id===id;})[0];if(!ev){showHome();return;}document.getElementById("eventTitle").textContent="📋 "+ev.name;var dp=ev.eventDate?" · "+fmtDate(ev.eventDate):"";document.getElementById("eventDateSub").textContent="Created "+fmtDate(ev.created.split("T")[0])+dp;document.getElementById("homeScreen").classList.add("hidden");document.getElementById("checklistScreen").classList.remove("hidden");if(ev.eventDate){calNav=new Date(ev.eventDate+"T12:00:00");calSelected=new Date(ev.eventDate+"T12:00:00");}renderChecklist();renderCalendar();}
-  function renderHome(){var events=allEvents();var list=document.getElementById("eventsList");if(!events.length){list.innerHTML='<div class="empty-state">No events yet — create one above!</div>';return;}list.innerHTML="";deepClone(events).reverse().forEach(function(ev){var st=getState(ev.id),tk=getTasks(ev.id);var done=doneCount(tk,st),total=leafIds(tk).length;var dc=(done===total&&total>0)?"complete":done>0?"partial":"";var div=document.createElement("div");div.className="event-item";div.innerHTML='<div class="ev-dot '+dc+'"></div><div class="ev-info"><div class="ev-name">'+esc(ev.name)+'</div><div class="ev-date">📅 '+fmtDate(ev.eventDate)+'</div></div><span class="ev-progress">'+done+'/'+total+'</span><span class="ev-arrow">›</span>';div.addEventListener("click",function(){showChecklist(ev.id);});list.appendChild(div);});}
-  function addEvent(){var ni=document.getElementById("eventNameInput");var di=document.getElementById("eventDateInput");var name=ni.value.trim();if(!name){ni.focus();return;}var events=allEvents(),id="ev"+Date.now();events.push({id:id,name:name,created:new Date().toISOString(),eventDate:di.value||""});saveEvents(events);setTasks(id,deepClone(DEFAULT_TASKS));if(di.value){calNav=new Date(di.value+"T12:00:00");calSelected=new Date(di.value+"T12:00:00");}ni.value="";di.value="";showChecklist(id);}
-  function deleteCurrentEvent(){if(!confirm("Delete this event and all its progress?"))return;saveEvents(allEvents().filter(function(e){return e.id!==currentId;}));try{localStorage.removeItem("eg_st_"+currentId);localStorage.removeItem("eg_tk_"+currentId);}catch(e){}showHome();}
-  function toggleTask(taskId,task){if(task.children&&task.children.length){var allDone=task.children.every(function(c){return !!currentState[c.id];});task.children.forEach(function(c){currentState[c.id]=!allDone;});}else{currentState[taskId]=!currentState[taskId];}setState(currentId,currentState);renderChecklist();renderCalendar();}
-  function removeTask(taskId,parentId){if(parentId){var p=currentTasks.filter(function(t){return t.id===parentId;})[0];if(p)p.children=p.children.filter(function(c){return c.id!==taskId;});}else{currentTasks=currentTasks.filter(function(t){return t.id!==taskId;});}delete currentState[taskId];setTasks(currentId,currentTasks);setState(currentId,currentState);renderChecklist();}
-  function addTopTask(input){var label=input.value.trim();if(!label){input.focus();return;}currentTasks.push({id:uid(),label:label});setTasks(currentId,currentTasks);input.value="";renderChecklist();setTimeout(function(){var el=document.getElementById("newTaskInput");if(el)el.focus();},10);}
-  function addSubTask(input,parentId){var label=input.value.trim();if(!label){input.focus();return;}var p=currentTasks.filter(function(t){return t.id===parentId;})[0];if(!p)return;if(!p.children)p.children=[];p.children.push({id:uid(),label:label});setTasks(currentId,currentTasks);input.value="";renderChecklist();setTimeout(function(){var el=document.querySelector('.sub-input[data-pid="'+parentId+'"]');if(el)el.focus();},10);}
-  function renderChecklist(){var container=document.getElementById("checklist");container.innerHTML="";currentTasks.forEach(function(task){var section=document.createElement("div");section.className="task-section";var isDone=parentDone(task,currentState);var row=document.createElement("div");row.className="task-row"+(isDone?" done":"");row.innerHTML='<div class="checkbox"><span class="checkmark">✓</span></div><span class="task-label parent-label">'+esc(task.label)+'</span><button class="del-btn" title="Remove">✕</button>';(function(t){row.querySelector(".checkbox").addEventListener("click",function(e){e.stopPropagation();toggleTask(t.id,t);});row.querySelector(".task-label").addEventListener("click",function(e){e.stopPropagation();toggleTask(t.id,t);});row.querySelector(".del-btn").addEventListener("click",function(e){e.stopPropagation();removeTask(t.id,null);});})(task);section.appendChild(row);if(task.children&&task.children.length){task.children.forEach(function(child){var cDone=!!currentState[child.id];var cRow=document.createElement("div");cRow.className="task-row sub"+(cDone?" done":"");cRow.innerHTML='<div class="checkbox"><span class="checkmark">✓</span></div><span class="task-label">'+esc(child.label)+'</span><button class="del-btn" title="Remove">✕</button>';(function(c,pId){cRow.querySelector(".checkbox").addEventListener("click",function(e){e.stopPropagation();toggleTask(c.id,c);});cRow.querySelector(".task-label").addEventListener("click",function(e){e.stopPropagation();toggleTask(c.id,c);});cRow.querySelector(".del-btn").addEventListener("click",function(e){e.stopPropagation();removeTask(c.id,pId);});})(child,task.id);section.appendChild(cRow);});}var subAdd=document.createElement("div");subAdd.className="add-row sub-add";subAdd.innerHTML='<input type="text" class="sub-input" data-pid="'+task.id+'" placeholder="Add sub-task…" maxlength="80" /><button>+ Add</button>';var si=subAdd.querySelector("input");(function(inp,tid){subAdd.querySelector("button").addEventListener("click",function(){addSubTask(inp,tid);});inp.addEventListener("keydown",function(e){if(e.key==="Enter")addSubTask(inp,tid);});})(si,task.id);section.appendChild(subAdd);container.appendChild(section);});var addSec=document.createElement("div");addSec.className="task-section";addSec.innerHTML='<div class="add-row"><input type="text" id="newTaskInput" placeholder="Add a new task…" maxlength="80" /><button>+ Add</button></div>';var ni2=addSec.querySelector("#newTaskInput");addSec.querySelector("button").addEventListener("click",function(){addTopTask(ni2);});ni2.addEventListener("keydown",function(e){if(e.key==="Enter")addTopTask(ni2);});container.appendChild(addSec);var done=doneCount(currentTasks,currentState),total=leafIds(currentTasks).length;document.getElementById("progressBar").style.width=(total?Math.round(done/total*100):0)+"%";document.getElementById("progressLabel").textContent=done+" / "+total+" tasks done";document.getElementById("allDoneBanner").classList.toggle("show",total>0&&done===total);var sumEl=document.getElementById("mondaySummary");if(done>0){sumEl.classList.add("show");buildSummary();}else{sumEl.classList.remove("show");}}
-  function buildSummary(){var ev=allEvents().filter(function(e){return e.id===currentId;})[0];var lines=["Event: "+(ev?ev.name:""),"Updated: "+new Date().toLocaleString(),"Progress: "+doneCount(currentTasks,currentState)+" / "+leafIds(currentTasks).length+" tasks complete\n"];currentTasks.forEach(function(task){if(task.children&&task.children.length){var allD=parentDone(task,currentState),someD=task.children.some(function(c){return !!currentState[c.id];});lines.push((allD?"✅":someD?"🔄":"⬜")+" "+task.label);task.children.forEach(function(c){lines.push("   "+(currentState[c.id]?"✅":"⬜")+" "+c.label);});}else{lines.push((currentState[task.id]?"✅":"⬜")+" "+task.label);}});document.getElementById("summaryText").textContent=lines.join("\n");}
-  var MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
-  var WDAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-  function renderCalendar(){if(calView==="month")renderMonth();else if(calView==="week")renderWeek();else renderDay();}
-  function renderMonth(){var y=calNav.getFullYear(),m=calNav.getMonth();document.getElementById("calTitle").textContent=MONTHS[m]+" "+y;var today=new Date();var firstDOW=new Date(y,m,1).getDay();var daysInMo=new Date(y,m+1,0).getDate();var daysInPrev=new Date(y,m,0).getDate();var html='<div class="cal-weekdays">';WDAYS.forEach(function(d){html+='<div class="cal-wday">'+d[0]+'</div>';});html+='</div><div class="cal-grid">';for(var i=firstDOW-1;i>=0;i--){html+='<div class="cal-cell other-month"><span class="cal-num">'+(daysInPrev-i)+'</span></div>';}for(var d=1;d<=daysInMo;d++){var ds=y+"-"+pad(m+1)+"-"+pad(d);var dayEvs=eventsOnDate(ds);var dayObj=new Date(y,m,d);var cls="cal-cell";if(dayEvs.length)cls+=" has-event";if(sameDay(dayObj,today))cls+=" is-today";if(sameDay(dayObj,calSelected))cls+=" is-selected";html+='<div class="'+cls+'" data-ds="'+ds+'">';html+='<span class="cal-num">'+d+'</span>';if(dayEvs.length){html+='<div class="cal-dots">';dayEvs.slice(0,3).forEach(function(ev){html+='<div class="cal-dot'+(evComplete(ev)?' done':'')+'"></div>';});html+='</div>';}html+='</div>';}var filled=firstDOW+daysInMo,rem=filled%7===0?0:7-(filled%7);for(var n=1;n<=rem;n++){html+='<div class="cal-cell other-month"><span class="cal-num">'+n+'</span></div>';}html+='</div>';document.getElementById("calBody").innerHTML=html;document.querySelectorAll(".cal-cell.has-event").forEach(function(cell){cell.addEventListener("click",function(){calSelected=new Date(this.getAttribute("data-ds")+"T12:00:00");calNav=new Date(calSelected);setView("day");});});}
-  function renderWeek(){var d=new Date(calNav);var start=new Date(d);start.setDate(d.getDate()-d.getDay());var end=new Date(start);end.setDate(start.getDate()+6);var m1=MONTHS[start.getMonth()].substring(0,3),m2=MONTHS[end.getMonth()].substring(0,3);var titleStr=(m1===m2)?m1+" "+start.getDate()+" – "+end.getDate()+", "+end.getFullYear():m1+" "+start.getDate()+" – "+m2+" "+end.getDate()+", "+end.getFullYear();document.getElementById("calTitle").textContent=titleStr;var today=new Date();var html='<div class="week-rows">';for(var i=0;i<7;i++){var day=new Date(start);day.setDate(start.getDate()+i);var ds=toDateStr(day);var dayEvs=eventsOnDate(ds);var isToday=sameDay(day,today);html+='<div class="week-row'+(isToday?' is-today':'')+'"><div class="week-label">'+WDAYS[day.getDay()].substring(0,2)+'</div><div class="week-num">'+day.getDate()+'</div><div class="week-chips">';dayEvs.forEach(function(ev){html+='<div class="week-chip'+(evComplete(ev)?' done':'')+'">'+esc(ev.name)+'</div>';});html+='</div></div>';}html+='</div>';document.getElementById("calBody").innerHTML=html;}
-  function renderDay(){var ds=toDateStr(calSelected);document.getElementById("calTitle").textContent=calSelected.toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"});var dayEvs=eventsOnDate(ds);var html='<div>';if(!dayEvs.length){html+='<div class="day-empty">No events on this day</div>';}else{dayEvs.forEach(function(ev){var tk=getTasks(ev.id),st=getState(ev.id);var done=doneCount(tk,st),total=leafIds(tk).length;html+='<div class="day-ev" data-id="'+ev.id+'"><div class="day-ev-dot'+(evComplete(ev)?' done':'')+'"></div><div class="day-ev-name">'+esc(ev.name)+'</div><div class="day-ev-prog">'+done+'/'+total+'</div></div>';});}html+='</div>';document.getElementById("calBody").innerHTML=html;document.querySelectorAll(".day-ev[data-id]").forEach(function(el){el.addEventListener("click",function(){showChecklist(this.getAttribute("data-id"));});});}
-  function setView(v){calView=v;document.querySelectorAll(".cal-tab").forEach(function(t){t.classList.remove("active");});document.querySelector('.cal-tab[data-view="'+v+'"]').classList.add("active");renderCalendar();}
-  document.getElementById("addEventBtn").addEventListener("click",addEvent);
-  document.getElementById("eventNameInput").addEventListener("keydown",function(e){if(e.key==="Enter")addEvent();});
-  document.getElementById("backBtn").addEventListener("click",showHome);
-  document.getElementById("deleteEventBtn").addEventListener("click",deleteCurrentEvent);
-  document.getElementById("copyLinkBtn").addEventListener("click",function(){navigator.clipboard.writeText(window.location.href).then(function(){var btn=document.getElementById("copyLinkBtn");btn.textContent="✅ Copied!";setTimeout(function(){btn.textContent="📎 Copy Link";},2000);}).catch(function(){});});
-  document.getElementById("copySummaryBtn").addEventListener("click",function(){navigator.clipboard.writeText(document.getElementById("summaryText").textContent).then(function(){var btn=document.getElementById("copySummaryBtn");btn.textContent="Copied!";setTimeout(function(){btn.textContent="Copy Summary";},2000);}).catch(function(){});});
-  document.getElementById("calPrev").addEventListener("click",function(){if(calView==="month"){calNav=new Date(calNav.getFullYear(),calNav.getMonth()-1,1);}else if(calView==="week"){calNav=new Date(calNav);calNav.setDate(calNav.getDate()-7);}else{calNav=new Date(calNav);calNav.setDate(calNav.getDate()-1);calSelected=new Date(calNav);}renderCalendar();});
-  document.getElementById("calNext").addEventListener("click",function(){if(calView==="month"){calNav=new Date(calNav.getFullYear(),calNav.getMonth()+1,1);}else if(calView==="week"){calNav=new Date(calNav);calNav.setDate(calNav.getDate()+7);}else{calNav=new Date(calNav);calNav.setDate(calNav.getDate()+1);calSelected=new Date(calNav);}renderCalendar();});
-  document.querySelectorAll(".cal-tab").forEach(function(tab){tab.addEventListener("click",function(){setView(this.getAttribute("data-view"));});});
+(function() {
+
+  var DEFAULT_TASKS = [
+    { id: "t1", label: "Contact JLL about late lock-up" },
+    { id: "t2", label: "Set doors for unlocking/locking" },
+    { id: "t3", label: "Make and print wayfinding signs" },
+    { id: "t4", label: "Set out wayfinding signs" },
+    { id: "t5", label: "Prepare items for tables and welcome table", children: [
+      { id: "t5a", label: "Mints" },
+      { id: "t5b", label: "WiFi Cards" },
+      { id: "t5c", label: "Other EG tchotkes" }
+    ]},
+    { id: "t6", label: "Clean up", children: [
+      { id: "t6a", label: "Signs" },
+      { id: "t6b", label: "Put away mints, welcome signs etc." }
+    ]}
+  ];
+
+  var currentId = null;
+  var currentState = {};
+  var currentTasks = [];
+
+  // Calendar state
+  var calView = "month";
+  var calNav = new Date();
+  var calSelected = new Date();
+
+  // -- STORAGE --
+  function store(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e) {} }
+  function retrieve(k, fb) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : fb; } catch(e) { return fb; } }
+  function allEvents() { return retrieve("eg_events", []); }
+  function saveEvents(l) { store("eg_events", l); }
+  function getState(id) { return retrieve("eg_st_" + id, {}); }
+  function setState(id, s) { store("eg_st_" + id, s); }
+  function getTasks(id) { return retrieve("eg_tk_" + id, null) || deepClone(DEFAULT_TASKS); }
+  function setTasks(id, t) { store("eg_tk_" + id, t); }
+  function deepClone(x) { return JSON.parse(JSON.stringify(x)); }
+
+  // -- HELPERS --
+  function esc(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function uid() { return "x" + Math.random().toString(36).slice(2,9); }
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function toDateStr(d) { return d.getFullYear() + "-" + pad(d.getMonth()+1) + "-" + pad(d.getDate()); }
+  function sameDay(a, b) { return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate(); }
+  function leafIds(tasks) {
+    var ids = [];
+    tasks.forEach(function(t) {
+      if (t.children && t.children.length) { t.children.forEach(function(c){ ids.push(c.id); }); }
+      else { ids.push(t.id); }
+    });
+    return ids;
+  }
+  function doneCount(tasks, state) { return leafIds(tasks).filter(function(id){ return !!state[id]; }).length; }
+  function parentDone(task, state) {
+    if (!task.children || !task.children.length) return !!state[task.id];
+    return task.children.every(function(c){ return !!state[c.id]; });
+  }
+  function eventsOnDate(ds) { return allEvents().filter(function(ev){ return ev.eventDate === ds; }); }
+  function evComplete(ev) {
+    var tk = getTasks(ev.id), st = getState(ev.id), total = leafIds(tk).length;
+    return total > 0 && doneCount(tk, st) === total;
+  }
+  function fmtDate(ds) {
+    if (!ds) return "No date set";
+    return new Date(ds + "T12:00:00").toLocaleDateString(undefined, {month:"short", day:"numeric", year:"numeric"});
+  }
+
+  // -- SCREENS --
+  function showHome() {
+    currentId = null; currentState = {}; currentTasks = [];
+    document.getElementById("homeScreen").classList.remove("hidden");
+    document.getElementById("checklistScreen").classList.add("hidden");
+    renderHome();
+    renderCalendar();
+  }
+
+  function showChecklist(id) {
+    currentId = id;
+    currentState = getState(id);
+    currentTasks = getTasks(id);
+    var ev = allEvents().filter(function(e){ return e.id === id; })[0];
+    if (!ev) { showHome(); return; }
+    document.getElementById("eventTitle").textContent = "&#128203; " + ev.name;
+    var dp = ev.eventDate ? " · " + fmtDate(ev.eventDate) : "";
+    document.getElementById("eventDateSub").textContent = "Created " + fmtDate(ev.created.split("T")[0]) + dp;
+    document.getElementById("homeScreen").classList.add("hidden");
+    document.getElementById("checklistScreen").classList.remove("hidden");
+    if (ev.eventDate) {
+      calNav = new Date(ev.eventDate + "T12:00:00");
+      calSelected = new Date(ev.eventDate + "T12:00:00");
+    }
+    renderChecklist();
+    renderCalendar();
+  }
+
+  // -- HOME --
+  function renderHome() {
+    var events = allEvents();
+    var list = document.getElementById("eventsList");
+    if (!events.length) { list.innerHTML = '<div class="empty-state">No events yet — create one above!</div>'; return; }
+    list.innerHTML = "";
+    deepClone(events).sort(function(a, b) {
+      if (!a.eventDate && !b.eventDate) return 0;
+      if (!a.eventDate) return 1;
+      if (!b.eventDate) return -1;
+      return a.eventDate < b.eventDate ? -1 : a.eventDate > b.eventDate ? 1 : 0;
+    }).forEach(function(ev) {
+      var st = getState(ev.id), tk = getTasks(ev.id);
+      var done = doneCount(tk, st), total = leafIds(tk).length;
+      var dc = (done===total&&total>0)?"complete":done>0?"partial":"";
+      var div = document.createElement("div"); div.className = "event-item";
+      div.innerHTML =
+        '<div class="ev-dot ' + dc + '"></div>' +
+        '<div class="ev-info"><div class="ev-name">' + esc(ev.name) + '</div>' +
+        '<div class="ev-date">&#128197; ' + fmtDate(ev.eventDate) + '</div></div>' +
+        '<span class="ev-progress">' + done + '/' + total + '</span>' +
+        '<span class="ev-arrow">&#8250;</span>';
+      div.addEventListener("click", function(){ showChecklist(ev.id); });
+      list.appendChild(div);
+    });
+  }
+
+  function addEvent() {
+    var ni = document.getElementById("eventNameInput");
+    var di = document.getElementById("eventDateInput");
+    var name = ni.value.trim();
+    if (!name) { ni.focus(); return; }
+    var events = allEvents(), id = "ev" + Date.now();
+    events.push({ id: id, name: name, created: new Date().toISOString(), eventDate: di.value || "" });
+    saveEvents(events);
+    setTasks(id, deepClone(DEFAULT_TASKS));
+    if (di.value) { calNav = new Date(di.value + "T12:00:00"); calSelected = new Date(di.value + "T12:00:00"); }
+    ni.value = ""; di.value = "";
+    showChecklist(id);
+  }
+
+  function deleteCurrentEvent() {
+    if (!confirm("Delete this event and all its progress?")) return;
+    saveEvents(allEvents().filter(function(e){ return e.id !== currentId; }));
+    try { localStorage.removeItem("eg_st_" + currentId); localStorage.removeItem("eg_tk_" + currentId); } catch(e){}
+    showHome();
+  }
+
+  // -- CHECKLIST --
+  function toggleTask(taskId, task) {
+    if (task.children && task.children.length) {
+      var allDone = task.children.every(function(c){ return !!currentState[c.id]; });
+      task.children.forEach(function(c){ currentState[c.id] = !allDone; });
+    } else { currentState[taskId] = !currentState[taskId]; }
+    setState(currentId, currentState);
+    renderChecklist();
+    renderCalendar();
+  }
+
+  function removeTask(taskId, parentId) {
+    if (parentId) {
+      var p = currentTasks.filter(function(t){ return t.id === parentId; })[0];
+      if (p) p.children = p.children.filter(function(c){ return c.id !== taskId; });
+    } else { currentTasks = currentTasks.filter(function(t){ return t.id !== taskId; }); }
+    delete currentState[taskId];
+    setTasks(currentId, currentTasks); setState(currentId, currentState);
+    renderChecklist();
+  }
+
+  function addTopTask(input) {
+    var label = input.value.trim(); if (!label) { input.focus(); return; }
+    currentTasks.push({ id: uid(), label: label });
+    setTasks(currentId, currentTasks); input.value = "";
+    renderChecklist();
+    setTimeout(function(){ var el = document.getElementById("newTaskInput"); if(el) el.focus(); }, 10);
+  }
+
+  function addSubTask(input, parentId) {
+    var label = input.value.trim(); if (!label) { input.focus(); return; }
+    var p = currentTasks.filter(function(t){ return t.id === parentId; })[0]; if (!p) return;
+    if (!p.children) p.children = [];
+    p.children.push({ id: uid(), label: label });
+    setTasks(currentId, currentTasks); input.value = "";
+    renderChecklist();
+    setTimeout(function(){ var el = document.querySelector('.sub-input[data-pid="' + parentId + '"]'); if(el) el.focus(); }, 10);
+  }
+
+  function renderChecklist() {
+    var container = document.getElementById("checklist"); container.innerHTML = "";
+    currentTasks.forEach(function(task) {
+      var section = document.createElement("div"); section.className = "task-section";
+      var isDone = parentDone(task, currentState);
+      var row = document.createElement("div"); row.className = "task-row" + (isDone ? " done" : "");
+      row.innerHTML = '<div class="checkbox"><span class="checkmark">&#10003;</span></div><span class="task-label parent-label">' + esc(task.label) + '</span><button class="del-btn" title="Remove">&#10005;</button>';
+      (function(t){
+        row.querySelector(".checkbox").addEventListener("click", function(e){ e.stopPropagation(); toggleTask(t.id, t); });
+        row.querySelector(".task-label").addEventListener("click", function(e){ e.stopPropagation(); toggleTask(t.id, t); });
+        row.querySelector(".del-btn").addEventListener("click", function(e){ e.stopPropagation(); removeTask(t.id, null); });
+      })(task);
+      section.appendChild(row);
+      if (task.children && task.children.length) {
+        task.children.forEach(function(child) {
+          var cDone = !!currentState[child.id];
+          var cRow = document.createElement("div"); cRow.className = "task-row sub" + (cDone ? " done" : "");
+          cRow.innerHTML = '<div class="checkbox"><span class="checkmark">&#10003;</span></div><span class="task-label">' + esc(child.label) + '</span><button class="del-btn" title="Remove">&#10005;</button>';
+          (function(c, pId){
+            cRow.querySelector(".checkbox").addEventListener("click", function(e){ e.stopPropagation(); toggleTask(c.id, c); });
+            cRow.querySelector(".task-label").addEventListener("click", function(e){ e.stopPropagation(); toggleTask(c.id, c); });
+            cRow.querySelector(".del-btn").addEventListener("click", function(e){ e.stopPropagation(); removeTask(c.id, pId); });
+          })(child, task.id);
+          section.appendChild(cRow);
+        });
+      }
+      var subAdd = document.createElement("div"); subAdd.className = "add-row sub-add";
+      subAdd.innerHTML = '<input type="text" class="sub-input" data-pid="' + task.id + '" placeholder="Add sub-task&#8230;" maxlength="80" /><button>+ Add</button>';
+      var si = subAdd.querySelector("input");
+      (function(inp, tid){
+        subAdd.querySelector("button").addEventListener("click", function(){ addSubTask(inp, tid); });
+        inp.addEventListener("keydown", function(e){ if(e.key==="Enter") addSubTask(inp, tid); });
+      })(si, task.id);
+      section.appendChild(subAdd);
+      container.appendChild(section);
+    });
+    var addSec = document.createElement("div"); addSec.className = "task-section";
+    addSec.innerHTML = '<div class="add-row"><input type="text" id="newTaskInput" placeholder="Add a new task&#8230;" maxlength="80" /><button>+ Add</button></div>';
+    var ni2 = addSec.querySelector("#newTaskInput");
+    addSec.querySelector("button").addEventListener("click", function(){ addTopTask(ni2); });
+    ni2.addEventListener("keydown", function(e){ if(e.key==="Enter") addTopTask(ni2); });
+    container.appendChild(addSec);
+
+    var done = doneCount(currentTasks, currentState), total = leafIds(currentTasks).length;
+    document.getElementById("progressBar").style.width = (total ? Math.round(done/total*100) : 0) + "%";
+    document.getElementById("progressLabel").textContent = done + " / " + total + " tasks done";
+    document.getElementById("allDoneBanner").classList.toggle("show", total > 0 && done === total);
+    var sumEl = document.getElementById("mondaySummary");
+    if (done > 0) { sumEl.classList.add("show"); buildSummary(); } else { sumEl.classList.remove("show"); }
+  }
+
+  function buildSummary() {
+    var ev = allEvents().filter(function(e){ return e.id === currentId; })[0];
+    var lines = ["Event: " + (ev ? ev.name : ""), "Updated: " + new Date().toLocaleString(),
+      "Progress: " + doneCount(currentTasks, currentState) + " / " + leafIds(currentTasks).length + " tasks complete
+"];
+    currentTasks.forEach(function(task) {
+      if (task.children && task.children.length) {
+        var allD = parentDone(task, currentState), someD = task.children.some(function(c){ return !!currentState[c.id]; });
+        lines.push((allD ? "&#10003;" : someD ? "~" : "&#9744;") + " " + task.label);
+        task.children.forEach(function(c){ lines.push("   " + (currentState[c.id] ? "&#10003;" : "&#9744;") + " " + c.label); });
+      } else { lines.push((currentState[task.id] ? "&#10003;" : "&#9744;") + " " + task.label); }
+    });
+    document.getElementById("summaryText").textContent = lines.join("
+");
+  }
+
+  // -- CALENDAR --
+  var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var WDAYS  = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+  function renderCalendar() {
+    if (calView === "month") renderMonth();
+    else if (calView === "week") renderWeek();
+    else renderDay();
+  }
+
+  function renderMonth() {
+    var y = calNav.getFullYear(), m = calNav.getMonth();
+    document.getElementById("calTitle").textContent = MONTHS[m] + " " + y;
+    var today = new Date();
+    var firstDOW = new Date(y, m, 1).getDay();
+    var daysInMo = new Date(y, m+1, 0).getDate();
+    var daysInPrev = new Date(y, m, 0).getDate();
+
+    var html = '<div class="cal-weekdays">';
+    WDAYS.forEach(function(d){ html += '<div class="cal-wday">' + d[0] + '</div>'; });
+    html += '</div><div class="cal-grid">';
+
+    for (var i = firstDOW - 1; i >= 0; i--) {
+      html += '<div class="cal-cell other-month"><span class="cal-num">' + (daysInPrev - i) + '</span></div>';
+    }
+    for (var d = 1; d <= daysInMo; d++) {
+      var ds = y + "-" + pad(m+1) + "-" + pad(d);
+      var dayEvs = eventsOnDate(ds);
+      var dayObj = new Date(y, m, d);
+      var cls = "cal-cell";
+      if (dayEvs.length) cls += " has-event";
+      if (sameDay(dayObj, today)) cls += " is-today";
+      if (sameDay(dayObj, calSelected)) cls += " is-selected";
+      html += '<div class="' + cls + '" data-ds="' + ds + '">';
+      html += '<span class="cal-num">' + d + '</span>';
+      if (dayEvs.length) {
+        html += '<div class="cal-dots">';
+        dayEvs.slice(0,3).forEach(function(ev){ html += '<div class="cal-dot' + (evComplete(ev) ? ' done' : '') + '"></div>'; });
+        html += '</div>';
+      }
+      html += '</div>';
+    }
+    var filled = firstDOW + daysInMo, rem = filled % 7 === 0 ? 0 : 7 - (filled % 7);
+    for (var n = 1; n <= rem; n++) {
+      html += '<div class="cal-cell other-month"><span class="cal-num">' + n + '</span></div>';
+    }
+    html += '</div>';
+    document.getElementById("calBody").innerHTML = html;
+
+    document.querySelectorAll(".cal-cell.has-event").forEach(function(cell) {
+      cell.addEventListener("click", function() {
+        calSelected = new Date(this.getAttribute("data-ds") + "T12:00:00");
+        calNav = new Date(calSelected);
+        setView("day");
+      });
+    });
+  }
+
+  function renderWeek() {
+    var d = new Date(calNav);
+    var start = new Date(d); start.setDate(d.getDate() - d.getDay());
+    var end = new Date(start); end.setDate(start.getDate() + 6);
+    var m1 = MONTHS[start.getMonth()].substring(0,3), m2 = MONTHS[end.getMonth()].substring(0,3);
+    var titleStr = (m1 === m2)
+      ? m1 + " " + start.getDate() + " – " + end.getDate() + ", " + end.getFullYear()
+      : m1 + " " + start.getDate() + " – " + m2 + " " + end.getDate() + ", " + end.getFullYear();
+    document.getElementById("calTitle").textContent = titleStr;
+    var today = new Date();
+    var html = '<div class="week-rows">';
+    for (var i = 0; i < 7; i++) {
+      var day = new Date(start); day.setDate(start.getDate() + i);
+      var ds = toDateStr(day);
+      var dayEvs = eventsOnDate(ds);
+      var isToday = sameDay(day, today);
+      html += '<div class="week-row' + (isToday ? ' is-today' : '') + '">';
+      html += '<div class="week-label">' + WDAYS[day.getDay()].substring(0,2) + '</div>';
+      html += '<div class="week-num">' + day.getDate() + '</div>';
+      html += '<div class="week-chips">';
+      dayEvs.forEach(function(ev){ html += '<div class="week-chip' + (evComplete(ev) ? ' done' : '') + '">' + esc(ev.name) + '</div>'; });
+      html += '</div></div>';
+    }
+    html += '</div>';
+    document.getElementById("calBody").innerHTML = html;
+  }
+
+  function renderDay() {
+    var ds = toDateStr(calSelected);
+    document.getElementById("calTitle").textContent = calSelected.toLocaleDateString(undefined, {weekday:"short", month:"short", day:"numeric"});
+    var dayEvs = eventsOnDate(ds);
+    var html = '<div>';
+    if (!dayEvs.length) {
+      html += '<div class="day-empty">No events on this day</div>';
+    } else {
+      dayEvs.forEach(function(ev){
+        var tk = getTasks(ev.id), st = getState(ev.id);
+        var done = doneCount(tk, st), total = leafIds(tk).length;
+        html += '<div class="day-ev" data-id="' + ev.id + '">';
+        html += '<div class="day-ev-dot' + (evComplete(ev) ? ' done' : '') + '"></div>';
+        html += '<div class="day-ev-name">' + esc(ev.name) + '</div>';
+        html += '<div class="day-ev-prog">' + done + '/' + total + '</div>';
+        html += '</div>';
+      });
+    }
+    html += '</div>';
+    document.getElementById("calBody").innerHTML = html;
+    document.querySelectorAll(".day-ev[data-id]").forEach(function(el){
+      el.addEventListener("click", function(){ showChecklist(this.getAttribute("data-id")); });
+    });
+  }
+
+  function setView(v) {
+    calView = v;
+    document.querySelectorAll(".cal-tab").forEach(function(t){ t.classList.remove("active"); });
+    document.querySelector('.cal-tab[data-view="' + v + '"]').classList.add("active");
+    renderCalendar();
+  }
+
+  // -- WIRE UP --
+  document.getElementById("addEventBtn").addEventListener("click", addEvent);
+  document.getElementById("eventNameInput").addEventListener("keydown", function(e){ if(e.key==="Enter") addEvent(); });
+  document.getElementById("backBtn").addEventListener("click", showHome);
+  document.getElementById("deleteEventBtn").addEventListener("click", deleteCurrentEvent);
+  document.getElementById("copyLinkBtn").addEventListener("click", function(){
+    navigator.clipboard.writeText(window.location.href).then(function(){
+      var btn = document.getElementById("copyLinkBtn"); btn.textContent = "Copied!";
+      setTimeout(function(){ btn.textContent = "&#128206; Copy Link"; }, 2000);
+    }).catch(function(){});
+  });
+  document.getElementById("copySummaryBtn").addEventListener("click", function(){
+    navigator.clipboard.writeText(document.getElementById("summaryText").textContent).then(function(){
+      var btn = document.getElementById("copySummaryBtn"); btn.textContent = "Copied!";
+      setTimeout(function(){ btn.textContent = "Copy Summary"; }, 2000);
+    }).catch(function(){});
+  });
+  document.getElementById("calPrev").addEventListener("click", function(){
+    if (calView === "month") { calNav = new Date(calNav.getFullYear(), calNav.getMonth() - 1, 1); }
+    else if (calView === "week") { calNav = new Date(calNav); calNav.setDate(calNav.getDate() - 7); }
+    else { calNav = new Date(calNav); calNav.setDate(calNav.getDate() - 1); calSelected = new Date(calNav); }
+    renderCalendar();
+  });
+  document.getElementById("calNext").addEventListener("click", function(){
+    if (calView === "month") { calNav = new Date(calNav.getFullYear(), calNav.getMonth() + 1, 1); }
+    else if (calView === "week") { calNav = new Date(calNav); calNav.setDate(calNav.getDate() + 7); }
+    else { calNav = new Date(calNav); calNav.setDate(calNav.getDate() + 1); calSelected = new Date(calNav); }
+    renderCalendar();
+  });
+  document.querySelectorAll(".cal-tab").forEach(function(tab){
+    tab.addEventListener("click", function(){ setView(this.getAttribute("data-view")); });
+  });
+
+  // -- INIT --
   showHome();
+
 })();
 </script>
 </body>
